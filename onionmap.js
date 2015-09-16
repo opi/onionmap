@@ -43,15 +43,17 @@ fetchJSONFile(jsonPath, function(data) {
         if (relay.latitude && relay.longitude) {
             var marker = L.marker([relay.latitude, relay.longitude])
                                         .bindPopup(
-                                            "<h3>"+relay.nickname+"</h3><br />"+
-                                            ""+relay.fingerprint+"<br />"+
-                                            "country: "+relay.country_name+" ("+relay.country+")<br />"+
-                                            "as_number: "+relay.as_number+"<br />"+
-                                            "as_name: "+relay.as_name+"<br />"+
-                                            "consensus_weight_fraction: "+relay.consensus_weight_fraction+"<br />"+
-                                            "guard_probability: "+relay.guard_probability+"<br />"+
-                                            "middle_probability: "+relay.middle_probability+"<br />"+
-                                            "exit_probability: "+relay.exit_probability+"<br />"
+                                            "<h3>"+relay.nickname+"</h3>"+
+                                            "<p><a href='https://atlas.torproject.org/#details/"+relay.fingerprint+"'>"+relay.fingerprint+"</a></p>"+
+                                            "<p>" +
+                                            "Country: "+relay.country_name+" ("+relay.country+")<br />"+
+                                            "AS Number: "+relay.as_number+"<br />"+
+                                            "AS Name: "+relay.as_name+"<br />"+
+                                            "Consensus weight fraction: "+relay.consensus_weight_fraction+"<br />"+
+                                            "Guard probability: "+relay.guard_probability+"<br />"+
+                                            "Middle probability: "+relay.middle_probability+"<br />"+
+                                            "Exit probability: "+relay.exit_probability+"<br />" +
+                                            "</p>"
                                         );
             // Add relay to feature group
             relaysMarkers.addLayer(marker);
