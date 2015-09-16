@@ -17,7 +17,6 @@ L.control.scale({
 }).addTo(map);
 
 // Set map on loading state
-console.log(map.getContainer().classList);
 map.getContainer().classList.add('loading');
 
 // Get relay list from onionoo
