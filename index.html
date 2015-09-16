@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>onionmap</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css">
+        <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.css">
+        <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
+        <link rel="stylesheet" href="onionmap.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade jumbotron">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header class="jumbotron">
+            <div class="container">
+                <h1>Onionmap</h1>
+                <p>Show me where my onions are</p>
+            </div>
+        </header>
+
+        <div class="container">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Informations</h2>
+                </div>
+                <div class="panel-body">
+                    <span id="bridge-count">xxx</span> bridges in database.<br />
+                    <span id="relay-count">xxx</span> relays in database.
+
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title"><span class="glyphicon glyphicon-map-marker"></span> Map</h2>
+                </div>
+                <div class="panel-body">
+                    <div id="map" class="map"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title"><span class="glyphicon glyphicon-copyright-mark"></span> Copyright and license</h2>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        Data from <a href="https://onionoo.torproject.org/">Onionoo</a>.<br />
+                        "Tor" and the "Onion Logo" are registered trademarks of The Tor Project, Inc.
+                    </p>
+                </div>
+            </div>
+
+            <footer class="jumbotron text-center">
+                Support the Tor network, donate to <a href="https://www.torservers.net/donate.html">TorServers.net</a>
+            </footer>
+
+        </div>
+
+        <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
+        <script src="bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+        <script src="onionmap.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "onionmap",
+  "version": "0.0.0",
+  "authors": [
+    "opi <opi@no-log.org>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "~3.3.5",
+    "leaflet": "~0.7.5",
+    "leaflet.markercluster": "~0.4.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "onionmap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "onionmap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.5.2"
+  }
+}

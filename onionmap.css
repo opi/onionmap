@@ -1,0 +1,44 @@
+#map {
+    position: relative;
+    height: 500px;
+}
+#map.loading {
+}
+
+
+/*#map::after,
+#map::before {
+    transition: background 0.25s ease;
+}*/
+#map.loading::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+}
+#map.loading::after {
+    font-family: "Glyphicons Halflings";
+    content: "";
+    display: block;
+    height: 4em;
+    width: 4em;
+    font-size: 4em;
+    line-height: 4em;
+    text-align: center;
+    color: #666;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -2em 0 0 -2em;
+    animation: spin 1.5s infinite linear;
+    transform-origin: center center;
+}
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}

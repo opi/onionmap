@@ -1,0 +1,9 @@
+# npm files
+node_modules
+npm-debug.log
+
+# Bower
+bower_components
+
+# Debug components
+onionoo.json
