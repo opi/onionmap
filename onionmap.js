@@ -1,3 +1,26 @@
+
+/** Utility **/
+var fetchJSONFile = function(path, callback) {
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = function() {
+        if (httpRequest.readyState === 4) {
+            if (httpRequest.status === 200) {
+                var data = JSON.parse(httpRequest.responseText);
+                if (callback) callback(data);
+            }
+        }
+    };
+    httpRequest.open('GET', path);
+    httpRequest.send();
+}
+
+var percentage = function(number) {
+    if (typeof number === 'undefined') return "N/A";
+    if (number == 0) return "0";
+    return (number * 100).toFixed(4) +  " %";
+}
+
+
 // Create map
 var map = L.map('map').setView([27, 18], 2);
 
@@ -24,7 +47,7 @@ L.Icon.Default.imagePath = 'dist/css/images';
 
 // Get relay list from onionoo
 // Real url is https://onionoo.torproject.org/details?fields=nickname,fingerprint,latitude,longitude,consensus_weight_fraction,guard_probability,middle_probability,exit_probability,dir_address,country,country_name,as_number,as_name
-var jsonPath = "https://onionoo.torproject.org/details?fields=nickname,fingerprint,latitude,longitude,consensus_weight_fraction,guard_probability,middle_probability,exit_probability,dir_address,country,country_name,as_number,as_name";
+var jsonPath = "https://onionoo.torproject.org/details?fields=nickname,fingerprint,latitude,longitude,or_addresses,consensus_weight_fraction,guard_probability,middle_probability,exit_probability,dir_address,country,country_name,as_number,as_name";
 // var jsonPath = 'onionoo.json';
 fetchJSONFile(jsonPath, function(data) {
 
@@ -47,15 +70,16 @@ fetchJSONFile(jsonPath, function(data) {
             var marker = L.marker([relay.latitude, relay.longitude])
                                         .bindPopup(
                                             "<h3>"+relay.nickname+"</h3>"+
-                                            "<p><a href='https://atlas.torproject.org/#details/"+relay.fingerprint+"'>"+relay.fingerprint+"</a></p>"+
+                                            "<p><a href='https://atlas.torproject.org/#details/"+relay.fingerprint+"' title='View on Atlas'>"+relay.fingerprint+"</a></p>"+
                                             "<p>" +
+                                            "IP: " + relay.or_addresses[0] +"<br />"+
                                             "Country: "+relay.country_name+" ("+relay.country+")<br />"+
                                             "AS Number: "+relay.as_number+"<br />"+
                                             "AS Name: "+relay.as_name+"<br />"+
-                                            "Consensus weight fraction: "+relay.consensus_weight_fraction+"<br />"+
-                                            "Guard probability: "+relay.guard_probability+"<br />"+
-                                            "Middle probability: "+relay.middle_probability+"<br />"+
-                                            "Exit probability: "+relay.exit_probability+"<br />" +
+                                            "Consensus weight fraction: "+ percentage(relay.consensus_weight_fraction) +"<br />"+
+                                            "Guard probability: "+ percentage(relay.guard_probability) +"<br />"+
+                                            "Middle probability: "+ percentage(relay.middle_probability) +"<br />"+
+                                            "Exit probability: "+percentage(relay.exit_probability) +"<br />" +
                                             "</p>"
                                         );
             // Add relay to feature group
@@ -83,18 +107,3 @@ fetchJSONFile(jsonPath, function(data) {
     map.addLayer(relaysCluster);
 });
 
-
-/** Utility **/
-function fetchJSONFile(path, callback) {
-    var httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = function() {
-        if (httpRequest.readyState === 4) {
-            if (httpRequest.status === 200) {
-                var data = JSON.parse(httpRequest.responseText);
-                if (callback) callback(data);
-            }
-        }
-    };
-    httpRequest.open('GET', path);
-    httpRequest.send();
-}
