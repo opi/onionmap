@@ -17,7 +17,11 @@ Assuming Bower is installed, you can get dependencies with:
 Now you'll have to make a build, with Gulp.
 See http://gulpjs.com/ for installation documentation.
 
-Assuming Gulp is installed, create a build with:
+Assuming NPM and Gulp are installed, install dependencies with :
+
+    (sudo) npm install
+
+create a build with:
 
 	gulp build
 
