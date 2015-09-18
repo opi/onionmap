@@ -19,6 +19,9 @@ L.control.scale({
 // Set map on loading state
 map.getContainer().classList.add('loading');
 
+// Some config
+L.Icon.Default.imagePath = 'dist/css/images';
+
 // Get relay list from onionoo
 // Real url is https://onionoo.torproject.org/details?fields=nickname,fingerprint,latitude,longitude,consensus_weight_fraction,guard_probability,middle_probability,exit_probability,dir_address,country,country_name,as_number,as_name
 var jsonPath = "https://onionoo.torproject.org/details?fields=nickname,fingerprint,latitude,longitude,consensus_weight_fraction,guard_probability,middle_probability,exit_probability,dir_address,country,country_name,as_number,as_name";
