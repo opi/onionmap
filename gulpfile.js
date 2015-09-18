@@ -20,7 +20,7 @@ gulp.task('build', [
 // Watch task
 gulp.task('watch', function(){
     gulp.watch('*.js', ['js']);
-    gulp.watch('*.less', ['css']);
+    gulp.watch('*.css', ['css']);
 });
 
 
