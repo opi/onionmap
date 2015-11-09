@@ -64,9 +64,6 @@ fetchJSONFile(jsonPath, function(data) {
 
     // Loop through relays
     data.relays.forEach(function(relay, idx){
-        // // debug
-        // if (idx < 5) console.log(relay);
-
         if (relay.latitude && relay.longitude) {
             var marker = L.marker([relay.latitude, relay.longitude])
                                         .bindPopup(
