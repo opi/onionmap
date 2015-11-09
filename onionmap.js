@@ -63,8 +63,7 @@ fetchJSONFile(jsonPath, function(data) {
    map.getContainer().classList.remove('loading');
 
     // Update information panel
-    // document.getElementById('bridge-count').innerHTML = data.bridges.length;
-    document.getElementById('relay-count').innerHTML = data.relays.length;
+    (document.getElementById('relay-count')) ? document.getElementById('relay-count').innerHTML = data.relays.length : null;
 
     // New feature group
     relaysMarkers = L.featureGroup();
