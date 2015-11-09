@@ -15,6 +15,10 @@ gulp.task('build', [
     'fonts',
     'images',
 ]);
+gulp.task('build-iframe', [
+    'iframe-css',
+    'js',
+]);
 
 
 // Watch task
@@ -51,6 +55,20 @@ gulp.task('css', function () {
         }))*/
         .pipe(cssmin())
         .pipe(concat('styles.min.css'))
+        .pipe(gulp.dest('./dist/css'))
+});
+
+gulp.task('iframe-css', function () {
+    return gulp.src([
+            'bower_components/leaflet/dist/leaflet.css',
+            'bower_components/leaflet.markercluster/dist/MarkerCluster.css',
+            'bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css',
+        ])
+        /*.pipe(rename({
+            suffix: '.min'
+        }))*/
+        .pipe(cssmin())
+        .pipe(concat('iframe.min.css'))
         .pipe(gulp.dest('./dist/css'))
 });
 
