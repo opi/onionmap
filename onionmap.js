@@ -1,6 +1,6 @@
 
 /** Utility **/
-var fetchJSONFile = function(path, callback) {
+var fetchJSONFile = function(path, callback, errorCallback) {
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4) {
@@ -8,6 +8,7 @@ var fetchJSONFile = function(path, callback) {
                 var data = JSON.parse(httpRequest.responseText);
                 if (callback) callback(data);
             }
+            else {if (errorCallback) errorCallback(httpRequest);}
         }
     };
     httpRequest.open('GET', path);
@@ -105,5 +106,10 @@ fetchJSONFile(jsonPath, function(data) {
 
     // Add cluster to map
     map.addLayer(relaysCluster);
+
+}, function(httpRequest) {
+    // Error handling
+    alert("An error occurded");
+    console.log(httpRequest);
 });
 
