@@ -63,6 +63,7 @@ gulp.task('iframe-css', function () {
             'bower_components/leaflet/dist/leaflet.css',
             'bower_components/leaflet.markercluster/dist/MarkerCluster.css',
             'bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css',
+            'onionmap.css'
         ])
         /*.pipe(rename({
             suffix: '.min'
