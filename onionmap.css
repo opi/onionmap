@@ -2,14 +2,7 @@
     position: relative;
     height: 500px;
 }
-#map.loading {
-}
-
-
-/*#map::after,
-#map::before {
-    transition: background 0.25s ease;
-}*/
+#map.loading {}
 #map.loading::before {
     content: " ";
     display: block;
@@ -18,27 +11,54 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
+
 #map.loading::after {
-    font-family: "Glyphicons Halflings";
-    content: "";
+    content: " ";
     display: block;
-    height: 4em;
-    width: 4em;
-    font-size: 4em;
-    line-height: 4em;
-    text-align: center;
-    color: #666;
     position: absolute;
+    z-index: 2;
     top: 50%;
     left: 50%;
-    margin: -2em 0 0 -2em;
-    animation: spin 1.5s infinite linear;
-    transform-origin: center center;
+    margin: -5.5em 0 0 -5.5em;
+    font-size: 10px;
+    text-indent: -9999em;
+    width: 11em;
+    height: 11em;
+    border-radius: 50%;
+    background: #fff;
+    background: -moz-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    position: relative;
+    -webkit-animation: loading 1.4s infinite linear;
+    animation: loading 1.4s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
 }
-@keyframes spin {
-    from { transform: scale(1) rotate(0deg);}
-    to { transform: scale(1) rotate(360deg);}
+
+@-webkit-keyframes loading {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes loading {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
