@@ -65,6 +65,28 @@
                     <ul>
                         <li>Exit nodes on OVH network: <a href="?as=AS16276&flag=exit">?as=AS16276&flag=exit</a> ;)</li>
                     </ul>
+                    <hr />
+                    <form method="GET" action="index.html" class="form-inline">
+                        <div class="form-group">
+                            <label for="family">Family</label>
+                            <input type="text" name="family" id="family" value="" placeholder="Fingerprint" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="as">AS</label>
+                            <input type="text" name="as" id="as" value="" placeholder="AS Number" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="flag">Flag</label>
+                            <select name="flag" id="flag" class="form-control">
+                                <option value="">- None -</option>
+                                <option value="guard">Guard</option>
+                                <option value="middle">Middle</option>
+                                <option value="exit">Exit</option>
+                            </select>
+                        </div>
+                        <input type="submit" value="Update map" class="btn btn-primary">
+                    </form>
+
                 </div>
             </div>
 

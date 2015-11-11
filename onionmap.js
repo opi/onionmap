@@ -54,7 +54,15 @@ var jsonPath = "https://onionoo.torproject.org/details?fields=nickname,fingerpri
 // Additionnal Onionoo parameters, as query string
 // See https://onionoo.torproject.org/protocol.html#methods
 if (location.search) {
-    jsonPath += "&" + location.search.substring(1);
+    search = [];
+    location.search.substring(1).split('&').forEach(function(parameter) {
+        // Filter out parameters without value from form. 
+        if (parameter.split('=')[1]) {
+            search.push(parameter);
+        }
+    });
+
+    jsonPath += "&" + search.join('&');
 }
 
 // var jsonPath = 'onionoo.json';
