@@ -50,6 +50,41 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
+                    <h2 class="panel-title"><span class="glyphicon glyphicon-cog"></span> Options</h2>
+                </div>
+                <div class="panel-body">
+                    <p>You can filter out datas based on <a href="https://onionoo.torproject.org/protocol.html#methods">Onionoo parameters</a>.</p>
+                    <h3>Examples</h3>
+                    <ul>
+                        <li>Exit nodes: <a href="?flag=exit">?flag=exit</a></li>
+                        <li>Relays from Spain: <a href="?country=ES">?country=ES</a></li>
+                        <li>Relays from the Tor servers family: <a href="?family=7BB160A8F54BD74F3DA5F2CE701E8772B841859D">?family=7BB160A8F54BD74F3DA5F2CE701E8772B841859D</a></li>
+                        <li>Relays on AS29169: <a href="?as=AS29169">/as=AS29169</a></li>
+                    </ul>
+                    <p>Note that parameters can be combined</p>
+                    <ul>
+                        <li>Exit nodes on OVH network: <a href="?as=AS16276&flag=exit">?as=AS16276&flag=exit</a> ;)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title"><span class="glyphicon glyphicon-link"></span> Embed as iframe</h2>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        The <a href="iframe.html" target="_blank">iframe.html</a> url shows only the map, without any other HTML content. 
+                        It helps you embed a OnionMap in an iframe.
+                    </p>
+                    <code>
+                        &lt;iframe src="/iframe.html?flag=exit" height="100%" width="100%" style="border:0;"&gt;&lt;/iframe&gt;
+                    </code>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
                     <h2 class="panel-title"><span class="glyphicon glyphicon-copyright-mark"></span> Copyright, license and credits</h2>
                 </div>
                 <div class="panel-body">
