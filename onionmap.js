@@ -4,7 +4,7 @@ var fetchJSONFile = function(path, callback, errorCallback) {
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4) {
-            if (httpRequest.status === 200) {
+            if (httpRequest.status === 200 || httpRequest.status === 304) {
                 var data = JSON.parse(httpRequest.responseText);
                 if (callback) callback(data);
             }
@@ -12,6 +12,7 @@ var fetchJSONFile = function(path, callback, errorCallback) {
         }
     };
     httpRequest.open('GET', path);
+    httpRequest.setRequestHeader('accept-encoding','gzip');
     httpRequest.send();
 }
 
