@@ -30,3 +30,9 @@ Sources
 -------
 
 Available on https://github.com/opi/onionmap
+
+
+Demo
+----
+
+Online demo on Github pages at https://opi.github.io/onionmap/
